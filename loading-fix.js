@@ -1,4 +1,4 @@
-// loading-fix.js - Guarantees loading screen finishes
+// loading-fix.js
 (function() {
     'use strict';
     
@@ -15,13 +15,8 @@
         }
     }
     
-    // Hide after 1 second max
     setTimeout(hideLoadingScreen, 1000);
-    
-    // Also hide when page loads
     window.addEventListener('load', hideLoadingScreen);
-    
-    // And hide when DOM ready
     document.addEventListener('DOMContentLoaded', hideLoadingScreen);
     
 })();

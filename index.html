@@ -17,6 +17,41 @@
     <link rel="stylesheet" href="fullscreen-indicator.css">
     <link rel="stylesheet" href="premium-chat.css">
     <link rel="stylesheet" href="admin.css">
+    <style>
+        /* Add these styles for the unlocked state */
+        .category-box.unlocked {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--glow-color, rgba(139, 92, 246, 0.4));
+        }
+        
+        .category-box.unlocked .box-glow {
+            opacity: 1;
+            animation: unlockedGlow 2s ease-in-out infinite;
+        }
+        
+        .category-box.unlocked .category-icon {
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes unlockedGlow {
+            0%, 100% { 
+                box-shadow: 
+                    inset 0 0 0 1px rgba(139, 92, 246, 0.3),
+                    0 0 30px rgba(139, 92, 246, 0.3);
+            }
+            50% { 
+                box-shadow: 
+                    inset 0 0 0 1px rgba(139, 92, 246, 0.6),
+                    0 0 50px rgba(139, 92, 246, 0.6);
+            }
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -112,28 +147,28 @@
         
         <!-- Category Boxes -->
         <div class="categories">
-            <a href="games.html" class="category-box">
+            <a href="games.html" class="category-box" id="games-box">
                 <div class="category-icon">🎮</div>
                 <h3>Games</h3>
                 <p>Play hundreds of unblocked games</p>
                 <div class="box-glow"></div>
             </a>
             
-            <a href="apps.html" class="category-box">
+            <a href="apps.html" class="category-box" id="apps-box">
                 <div class="category-icon">📱</div>
                 <h3>Apps</h3>
                 <p>Useful Applications</p>
                 <div class="box-glow"></div>
             </a>
             
-            <a href="tools.html" class="category-box">
+            <a href="tools.html" class="category-box" id="tools-box">
                 <div class="category-icon">🛠️</div>
                 <h3>Tools</h3>
                 <p>Utilities and productivity tools</p>
                 <div class="box-glow"></div>
             </a>
 
-            <a href="roadmap.html" class="category-box">
+            <a href="roadmap.html" class="category-box" id="roadmap-box">
                 <div class="category-icon">🗺️</div>
                 <h3>Roadmap</h3>
                 <p>Keep up with expected updates</p>
@@ -250,11 +285,11 @@
         </div>
     </div>
 
-    <!-- Scripts - SIMPLIFIED -->
-    <script src="loading-fix.js"></script> <!-- Simple loading fix -->
-    <script src="auth-system.js"></script> <!-- Simple all-in-one auth -->
+    <!-- Scripts - FIXED ORDER -->
+    <script src="loading-fix.js"></script>
+    <script src="auth-system-fixed.js"></script> <!-- CHANGED: Fixed auth system -->
     
-    <!-- Your existing scripts (keep everything else working) -->
+    <!-- Your existing scripts -->
     <script src="debug.js"></script>
     <script src="utils.js"></script>
     <script src="title.js"></script>
@@ -289,5 +324,13 @@
 
     <script src="premium-chat.js"></script>
     <script src="announcement.js"></script>
+    
+    <script>
+        // Test keys in console
+        console.log('🔑 Test keys available:');
+        console.log('- Free: IMPOOR');
+        console.log('- Premium: CHARLESISPOOR, UNHIIN, SOSAPARTY');
+        console.log('💡 Type checkAuth() to see current session');
+    </script>
 </body>
 </html>
