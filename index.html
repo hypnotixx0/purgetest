@@ -232,7 +232,7 @@
                             </div>
                             <div class="key-hint">
                                 <i class="fas fa-crown"></i>
-                                <span>Premium keys: CHARLESISPOOR, UNHIIN, SOSAPARTY</span>
+                                <span>Premium keys unlock all content</span>
                             </div>
                         </div>
                     </div>
@@ -250,16 +250,16 @@
         </div>
     </div>
 
-    <!-- Scripts - CRITICAL ORDER -->
-    <script src="force-loading-complete.js"></script> <!-- NEW: MUST BE FIRST -->
+    <!-- Scripts - SIMPLIFIED -->
+    <script src="loading-fix.js"></script> <!-- Simple loading fix -->
+    <script src="auth-system.js"></script> <!-- Simple all-in-one auth -->
+    
+    <!-- Your existing scripts (keep everything else working) -->
     <script src="debug.js"></script>
     <script src="utils.js"></script>
     <script src="title.js"></script>
     <script src="discord.js"></script>
     <script src="description.js"></script>
-    <script src="loading.js"></script> <!-- Your original loading -->
-    <script src="auth-overlay-simple.js"></script> <!-- NEW: Simple auth -->
-    <script src="session-check.js"></script> <!-- NEW: Link protection -->
     <script src="tab-cloaking.js"></script>
     <script src="theme-manager.js"></script>
     <script src="themes-widget.js"></script>
@@ -289,24 +289,5 @@
 
     <script src="premium-chat.js"></script>
     <script src="announcement.js"></script>
-    
-    <!-- Debug helpers -->
-    <script>
-        // Quick debug functions
-        window.checkAuth = function() {
-            console.log('🔍 Auth Check:');
-            console.log('- purge_auth:', sessionStorage.getItem('purge_auth'));
-            console.log('- purge_auth_level:', sessionStorage.getItem('purge_auth_level'));
-            console.log('- purge_auth_key:', sessionStorage.getItem('purge_auth_key'));
-            console.log('- purge_auth_timestamp:', sessionStorage.getItem('purge_auth_timestamp'));
-            console.log('- purge_auth_hash:', sessionStorage.getItem('purge_auth_hash'));
-        };
-        
-        window.clearAuth = function() {
-            sessionStorage.clear();
-            console.log('🗑️ Auth cleared');
-            location.reload();
-        };
-    </script>
 </body>
 </html>
